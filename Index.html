@@ -15,9 +15,9 @@
         }
         
         :root {
-            --primary-color: #00a526;
-            --secondary-color: #ffcc00;
-            --accent-color: #e53535;
+            --primary-color: #001f3f; /* Navy Blue */
+            --secondary-color: #0074D9; /* Blue */
+            --accent-color: #2ECC40; /* Green */
             --dark-color: #121c26;
             --light-color: #f8f9fa;
         }
@@ -28,7 +28,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             background-image: linear-gradient(rgba(13, 21, 32, 0.9), rgba(13, 21, 32, 0.9)), 
-                              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23121c26" width="100" height="100"/><path fill="%2300a526" opacity="0.2" d="M0 0h100v100H0z"/><path fill="%2300a526" opacity="0.1" d="M20 20h60v60H20z"/></svg>');
+                              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23121c26" width="100" height="100"/><path fill="%230074D9" opacity="0.2" d="M0 0h100v100H0z"/><path fill="%230074D9" opacity="0.1" d="M20 20h60v60H20z"/></svg>');
             background-size: cover;
         }
         
@@ -63,28 +63,32 @@
         .logo h1 {
             font-size: 28px;
             font-weight: 700;
-            color: var(--primary-color);
             margin-left: 10px;
         }
         
-        .logo span {
-            color: var(--secondary-color);
+        .logo .blue {
+            color: #0074D9; /* Blue for 1x */
+        }
+        
+        .logo .white {
+            color: white; /* White for Bet */
         }
         
         .register-btn {
-            background: linear-gradient(135deg, var(--primary-color), #008a20);
+            background: var(--primary-color); /* Navy Blue */
             color: white;
             padding: 12px 25px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 165, 38, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 31, 63, 0.3);
         }
         
         .register-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 165, 38, 0.5);
+            box-shadow: 0 6px 20px rgba(0, 31, 63, 0.5);
+            background: #002851;
         }
         
         /* হিরো সেকশন */
@@ -92,7 +96,7 @@
             min-height: 90vh;
             display: flex;
             align-items: center;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%2300a526" fill-opacity="0.2" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,213.3C1248,235,1344,213,1392,202.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') bottom no-repeat, 
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%230074D9" fill-opacity="0.2" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,213.3C1248,235,1344,213,1392,202.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') bottom no-repeat, 
                         linear-gradient(135deg, rgba(18, 28, 38, 0.9), rgba(13, 21, 32, 0.9));
             background-size: 100% 30%, cover;
             padding: 60px 0;
@@ -110,7 +114,7 @@
         .hero h2 {
             font-size: 3.5rem;
             margin-bottom: 20px;
-            color: var(--secondary-color);
+            color: white;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
         }
         
@@ -122,14 +126,14 @@
         }
         
         .promo-code {
-            background: linear-gradient(135deg, var(--accent-color), #c62a2a);
+            background: linear-gradient(135deg, var(--secondary-color), #0059b3);
             padding: 15px 30px;
             border-radius: 8px;
             margin: 20px 0;
             display: inline-block;
             font-size: 1.5rem;
             font-weight: bold;
-            box-shadow: 0 4px 15px rgba(229, 53, 53, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 116, 217, 0.4);
             animation: pulse 2s infinite;
         }
         
@@ -157,7 +161,7 @@
         
         .feature i {
             font-size: 2.5rem;
-            color: var(--secondary-color);
+            color: var(--accent-color);
             margin-bottom: 15px;
         }
         
@@ -170,7 +174,7 @@
         .section-title {
             text-align: center;
             margin-bottom: 50px;
-            color: var(--secondary-color);
+            color: white;
             font-size: 2.5rem;
         }
         
@@ -192,26 +196,15 @@
             overflow: hidden;
         }
         
-        .step-number {
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            background: var(--primary-color);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-        
         .step i {
             font-size: 3rem;
-            color: var(--secondary-color);
+            color: var(--accent-color);
             margin-bottom: 20px;
+        }
+        
+        .step h3 {
+            color: white;
+            margin-bottom: 15px;
         }
         
         /* FAQ সেকশন */
@@ -238,6 +231,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            color: white;
         }
         
         .accordion-content {
@@ -250,6 +244,30 @@
         .accordion-content.active {
             max-height: 300px;
             padding: 20px;
+        }
+        
+        /* WhatsApp Chat Button */
+        .whatsapp-chat {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            animation: pulse 2s infinite;
+            text-decoration: none;
+            font-size: 30px;
+        }
+        
+        .whatsapp-chat:hover {
+            transform: scale(1.1);
         }
         
         /* ফুটার */
@@ -274,7 +292,7 @@
         }
         
         .footer-links a:hover {
-            color: var(--secondary-color);
+            color: var(--accent-color);
         }
         
         /* অ্যানিমেশন */
@@ -309,6 +327,14 @@
                 width: 100%;
                 max-width: 350px;
             }
+            
+            .whatsapp-chat {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
         }
     </style>
 </head>
@@ -317,7 +343,7 @@
     <header>
         <div class="container header-content">
             <div class="logo">
-                <h1>1x<span>Bet</span></h1>
+                <h1><span class="blue">1x</span><span class="white">Bet</span></h1>
             </div>
             <a href="#" class="register-btn">রেজিস্ট্রেশন করুন</a>
         </div>
@@ -361,25 +387,21 @@
             <h2 class="section-title">কিভাবে রেজিস্ট্রেশন করবেন</h2>
             <div class="steps">
                 <div class="step">
-                    <div class="step-number">1</div>
                     <i class="fas fa-user-plus"></i>
                     <h3>রেজিস্ট্রেশন</h3>
                     <p>'রেজিস্ট্রেশন করুন' বাটনে ক্লিক করুন এবং আপনার তথ্য দিন</p>
                 </div>
                 <div class="step">
-                    <div class="step-number">2</div>
                     <i class="fas fa-ticket-alt"></i>
                     <h3>প্রমো কোড ব্যবহার করুন</h3>
                     <p>প্রমো কোড ফিল্ডে "Oxy11" লিখুন</p>
                 </div>
                 <div class="step">
-                    <div class="step-number">3</div>
                     <i class="fas fa-check-circle"></i>
                     <h3>নিশ্চিতকরণ</h3>
                     <p>আপনার ইমেইল বা ফোন নম্বর নিশ্চিত করুন</p>
                 </div>
                 <div class="step">
-                    <div class="step-number">4</div>
                     <i class="fas fa-money-check-alt"></i>
                     <h3>ডিপোজিট করুন</h3>
                     <p>আপনার অ্যাকাউন্টে টাকা ডিপোজিট করুন এবং বোনাস পান</p>
@@ -417,7 +439,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="accordion-content">
-                        <p>রেজিস্ট্রেশনের সময় প্রমো কোড "Oxy11" ব্যবহার করুন এবং প্রথম ডিপোজিটের উপর 130% বোনাস পাবেন।</p>
+                        <p>রেজিস্ট্রেশনের সময় প্রমো কোড "Oxy11" ব্যবহার করুন এবং প্রথম ডিপোজিটের উপর 130% বোনাস পাবেন。</p>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -445,6 +467,11 @@
             <p>© 2023 1xBet. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- WhatsApp Chat Button -->
+    <a href="https://wa.me/8801826444505" class="whatsapp-chat" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
         // অ্যাকর্ডিয়ন ফাংশনালিটি
