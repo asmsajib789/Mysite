@@ -80,7 +80,7 @@
         }
         
         .header-icons i {
-            font-size: 20px;
+            font-size: 24px; /* বড় গিফট আইকন */
             color: white;
             cursor: pointer;
         }
@@ -125,6 +125,7 @@
             font-weight: bold;
             box-shadow: 0 4px 15px rgba(0, 116, 217, 0.4);
             animation: pulse 2s infinite;
+            cursor: pointer;
         }
         
         /* কার্ড স্টাইল */
@@ -307,6 +308,7 @@
             color: #e0e0e0;
             font-size: 12px;
             cursor: pointer;
+            padding: 5px;
         }
         
         .nav-item i {
@@ -316,6 +318,12 @@
         
         .nav-item.active {
             color: var(--accent-color);
+        }
+        
+        .nav-text {
+            font-size: 12px !important;
+            color: inherit;
+            margin-top: 2px;
         }
         
         /* WhatsApp Chat Button */
@@ -389,24 +397,26 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background: linear-gradient(135deg, var(--dark-color), #1a283a);
-            padding: 20px;
+            padding: 25px;
             border-radius: 15px;
             z-index: 102;
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
             text-align: center;
-            width: 80%;
-            max-width: 300px;
+            width: 85%;
+            max-width: 320px;
             animation: fadeIn 0.5s ease;
         }
         
         .gift-popup h3 {
             color: var(--accent-color);
             margin-bottom: 15px;
+            font-size: 22px;
         }
         
         .gift-popup p {
             margin-bottom: 20px;
             color: #e0e0e0;
+            font-size: 16px;
         }
         
         .close-btn {
@@ -416,7 +426,7 @@
             background: none;
             border: none;
             color: white;
-            font-size: 18px;
+            font-size: 20px;
             cursor: pointer;
         }
         
@@ -440,6 +450,21 @@
             font-weight: 600;
             font-size: 14px;
         }
+        
+        /* কপি নোটিফিকেশন */
+        .copy-notification {
+            position: fixed;
+            bottom: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            z-index: 103;
+            animation: fadeIn 0.3s ease;
+            box-shadow: 0 4px 15px rgba(46, 204, 64, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -450,8 +475,8 @@
                 <h1><span class="blue">1x</span><span class="white">Bet</span></h1>
             </div>
             <div class="header-icons">
-                <i class="fas fa-gift" id="gift-icon"></i>
-                <a href="#registration" class="register-header-btn">রেজিস্টার</a>
+                <i class="fas fa-gift" id="gift-icon" style="font-size: 28px;"></i>
+                <a href="https://refpa483247.pro/L?tag=d_905607m_1236c_promo&site=905607&ad=1236&r=registration?type=fast&bonus=SPORT" class="register-header-btn">রেজিস্টার</a>
             </div>
         </div>
         
@@ -462,11 +487,11 @@
                 <h2>1xBet এজেন্ট ডিপোজিট</h2>
                 <p>বিশ্বস্ত অনলাইন বেটিং প্ল্যাটফর্মে এজেন্ট হয়ে আয় করুন</p>
                 
-                <div class="promo-code">
-                    প্রমো কোড: <strong>Oxy11</strong>
+                <div class="promo-code" id="promo-code">
+                    প্রমো কোড: <strong>Oxy11</strong> (কপি করতে ক্লিক করুন)
                 </div>
                 
-                <a href="#registration" class="btn btn-primary">এক ক্লিকে রেজিস্ট্রেশন</a>
+                <a href="https://refpa483247.pro/L?tag=d_905607m_1236c_promo&site=905607&ad=1236&r=registration?type=fast&bonus=SPORT" class="btn btn-primary">এক ক্লিকে রেজিস্ট্রেশন</a>
             </section>
             
             <!-- এজেন্ট ডিপোজিট সেকশন -->
@@ -551,7 +576,7 @@
                         </div>
                     </div>
                     
-                    <a href="https://1xbetregistration.com/bn/" class="btn btn-primary">রেজিস্ট্রেশন লিঙ্ক</a>
+                    <a href="https://refpa483247.pro/L?tag=d_905607m_1236c_promo&site=905607&ad=1236&r=registration?type=fast&bonus=SPORT" class="btn btn-primary">রেজিস্ট্রেশন লিঙ্ক</a>
                 </div>
             </section>
             
@@ -599,19 +624,19 @@
         <div class="app-footer">
             <a class="nav-item active" data-target="home">
                 <i class="fas fa-home"></i>
-                <span>হোম</span>
+                <span class="nav-text">হোম</span>
             </a>
             <a class="nav-item" data-target="registration">
                 <i class="fas fa-user-plus"></i>
-                <span>রেজিস্ট্রেশন</span>
+                <span class="nav-text">রেজিস্ট্রেশন</span>
             </a>
             <a class="nav-item" data-target="faq">
                 <i class="fas fa-question-circle"></i>
-                <span>FAQ</span>
+                <span class="nav-text">FAQ</span>
             </a>
             <a href="https://wa.me/8801826444505" class="nav-item">
                 <i class="fab fa-whatsapp"></i>
-                <span>WhatsApp</span>
+                <span class="nav-text">WhatsApp</span>
             </a>
         </div>
     </div>
@@ -626,7 +651,7 @@
         <button class="close-btn" id="close-popup">&times;</button>
         <h3>বিশেষ উপহার!</h3>
         <p>প্রথম ডিপোজিটে পাচ্ছেন 130% বোনাস! প্রমো কোড: <strong>Oxy11</strong> ব্যবহার করুন।</p>
-        <a href="#registration" class="btn btn-primary">এখনই নিবন্ধন করুন</a>
+        <a href="https://refpa483247.pro/L?tag=d_905607m_1236c_promo&site=905607&ad=1236&r=registration?type=fast&bonus=SPORT" class="btn btn-primary">এখনই নিবন্ধন করুন</a>
     </div>
 
     <div class="overlay" id="overlay" style="display: none;"></div>
@@ -659,29 +684,14 @@
             });
         });
         
-        // রেজিস্ট্রেশন বাটন ক্লিক করলে
-        document.querySelectorAll('.btn-primary').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                if (this.getAttribute('href') === '#registration') {
-                    e.preventDefault();
-                    
-                    // সব সেকশন hide করি
-                    document.querySelectorAll('.content-section').forEach(section => {
-                        section.classList.remove('active');
-                    });
-                    
-                    // রেজিস্ট্রেশন সেকশন show করি
-                    document.getElementById('registration').classList.add('active');
-                    
-                    // নেভিগেশন আইটেম একটিভ করি
-                    document.querySelectorAll('.nav-item').forEach(navItem => {
-                        navItem.classList.remove('active');
-                    });
-                    document.querySelector('[data-target="registration"]').classList.add('active');
-                    
-                    // নোটিফিকেশন দেখান
-                    showNotification('registration');
-                }
+        // প্রমো কোড কপি ফাংশন
+        document.getElementById('promo-code').addEventListener('click', function() {
+            const promoText = 'Oxy11';
+            navigator.clipboard.writeText(promoText).then(() => {
+                showCopyNotification('প্রমো কোড কপি হয়েছে: ' + promoText);
+            }).catch(err => {
+                console.error('কপি করতে ব্যর্থ: ', err);
+                showCopyNotification('কপি করতে ব্যর্থ হয়েছে');
             });
         });
         
@@ -735,6 +745,40 @@
                 notification.remove();
             }, 3000);
         }
+        
+        // কপি নোটিফিকেশন দেখানোর ফাংশন
+        function showCopyNotification(message) {
+            // নোটিফিকেশন তৈরি করুন
+            const notification = document.createElement('div');
+            notification.className = 'copy-notification';
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // 3 সেকেন্ড পর নোটিফিকেশন মুছে ফেলুন
+            setTimeout(function() {
+                notification.remove();
+            }, 3000);
+        }
+        
+        // পেজ রিফ্রেশ প্রতিরোধ
+        document.addEventListener('DOMContentLoaded', function() {
+            // ফর্ম সাবমিশন প্রতিরোধ
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                });
+            });
+            
+            // নেভিগেশন লিঙ্কগুলিতে ক্লিক প্রতিরোধ
+            const navLinks = document.querySelectorAll('a[href="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                });
+            });
+        });
     </script>
 </body>
 </html>
