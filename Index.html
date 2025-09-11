@@ -169,29 +169,36 @@
             color: var(--accent-color);
         }
         
-        /* এজেন্ট ডিপোজিট সেকশন */
+        /* এজেন্ট ডিপোজিট সেকশন - স্লাইডার স্টাইল */
         .agent-section {
             padding: 10px;
         }
         
-        .agent-cards {
-            display: flex;
-            overflow-x: auto;
-            gap: 15px;
-            padding: 10px;
-            scrollbar-width: none;
+        .agent-slider-container {
+            position: relative;
+            margin: 15px 0;
+            overflow: hidden;
+            border-radius: 15px;
         }
         
-        .agent-cards::-webkit-scrollbar {
-            display: none;
+        .agent-cards {
+            display: flex;
+            transition: transform 0.5s ease;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
         }
         
         .agent-card {
-            min-width: 280px;
+            flex: 0 0 100%;
             background: linear-gradient(135deg, var(--dark-color), #1a283a);
             border-radius: 15px;
             padding: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin-right: 15px;
+        }
+        
+        .agent-card:last-child {
+            margin-right: 0;
         }
         
         .agent-card h3 {
@@ -222,6 +229,58 @@
         .agent-card li i {
             color: var(--accent-color);
             font-size: 14px;
+        }
+        
+        /* স্লাইডার কন্ট্রোলস */
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            gap: 10px;
+        }
+        
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background: var(--accent-color);
+            transform: scale(1.2);
+        }
+        
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.3s ease;
+        }
+        
+        .slider-nav:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .slider-nav.prev {
+            left: 10px;
+        }
+        
+        .slider-nav.next {
+            right: 10px;
         }
         
         /* রেজিস্ট্রেশন স্টেপস */
@@ -500,26 +559,49 @@
                 <div class="card">
                     <h3 class="card-title"><i class="fas fa-user-tie"></i> এজেন্ট ডিপোজিট সিস্টেম</h3>
                     
-                    <div class="agent-cards">
-                        <div class="agent-card">
-                            <h3><i class="fas fa-crown"></i> 1xBet Cash</h3>
-                            <p>ডিপোজিট ১০০ ৳</p>
-                            <ul>
-                                <li><i class="fas fa-check"></i> স্বয়ংক্রিয় ডিপোজিট সিস্টেম</li>
-                                <li><i class="fas fa-check"></i> ১ মিনিটে ডিপোজিট হয়</li>
-                                <li><i class="fas fa-check"></i> বিকাশ, নগদ, রকেট </li>
-                            </ul>
+                    <div class="agent-slider-container">
+                        <div class="agent-cards" id="agent-slider">
+                            <div class="agent-card">
+                                <h3><i class="fas fa-crown"></i> 1xBet Cash</h3>
+                                <p>ডিপোজিট ১০০ ৳</p>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> স্বয়ংক্রিয় ডিপোজিট সিস্টেম</li>
+                                    <li><i class="fas fa-check"></i> ১ মিনিটে ডিপোজিট হয়</li>
+                                    <li><i class="fas fa-check"></i> বিকাশ, নগদ, রকেট </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="agent-card">
+                                <h3><i class="fas fa-users"></i> 1xBet ATM </h3>
+                                <p>মাস্টার এজেন্টের অধীনে উইথড্র</p>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> ২৪ ঘণ্টা নিরবিচ্ছিন্ন উইথড্র </li>
+                                    <li><i class="fas fa-check"></i> উইথড্র পেমেন্ট ২ মিনিটে </li>
+                                    <li><i class="fas fa-check"></i> সহজ উত্তোলন প্রকীয়া </li>
+                                </ul>
+                            </div>
+
+                            <div class="agent-card">
+                                <h3><i class="fas fa-gift"></i> বিশেষ বোনাস</h3>
+                                <p>নতুন গ্রাহকদের জন্য বিশেষ অফার</p>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> প্রথম ডিপোজিটে ১০০% বোনাস</li>
+                                    <li><i class="fas fa-check"></i> স্পোর্টস বেটিং বোনাস</li>
+                                    <li><i class="fas fa-check"></i> ক্যাসিনো ফ্রি স্পিন</li>
+                                </ul>
+                            </div>
                         </div>
                         
-                        <div class="agent-card">
-                            <h3><i class="fas fa-users"></i> 1xBet ATM </h3>
-                            <p>মাস্টার এজেন্টের অধীনে উইথড্র</p>
-                            <ul>
-                                <li><i class="fas fa-check"></i> ২৪ ঘণ্টা নিরবিচ্ছিন্ন উইথড্র </li>
-                                <li><i class="fas fa-check"></i> উইথড্র পেমেন্ট ২ মিনিটে </li>
-                                <li><i class="fas fa-check"></i> সহজ উত্তোলন প্রকীয়া </li>
-                            </ul>
-                        </div>
+                        <button class="slider-nav prev" id="slider-prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="slider-nav next" id="slider-next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="slider-controls" id="slider-dots">
+                        <!-- ডটস জাভাস্ক্রিপ্ট দ্বারা যোগ করা হবে -->
                     </div>
                 </div>
                 
@@ -701,6 +783,112 @@
     <div class="overlay" id="overlay" style="display: none;"></div>
 
     <script>
+        // এজেন্ট স্লাইডার ফাংশনালিটি
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('agent-slider');
+            const cards = slider.querySelectorAll('.agent-card');
+            const dotsContainer = document.getElementById('slider-dots');
+            const prevBtn = document.getElementById('slider-prev');
+            const nextBtn = document.getElementById('slider-next');
+            
+            let currentSlide = 0;
+            const slideCount = cards.length;
+            
+            // ডট ইন্ডিকেটর তৈরি করুন
+            for (let i = 0; i < slideCount; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('slider-dot');
+                if (i === 0) dot.classList.add('active');
+                dot.setAttribute('data-slide', i);
+                dotsContainer.appendChild(dot);
+            }
+            
+            const dots = dotsContainer.querySelectorAll('.slider-dot');
+            
+            // স্লাইডার আপডেট ফাংশন
+            function updateSlider() {
+                const translateX = -currentSlide * 100;
+                slider.style.transform = `translateX(${translateX}%)`;
+                
+                // ডট আপডেট করুন
+                dots.forEach((dot, index) => {
+                    if (index === currentSlide) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+            
+            // পরবর্তী স্লাইডে যান
+            nextBtn.addEventListener('click', function() {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlider();
+            });
+            
+            // পূর্ববর্তী স্লাইডে যান
+            prevBtn.addEventListener('click', function() {
+                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                updateSlider();
+            });
+            
+            // ডট ক্লিক করলে সংশ্লিষ্ট স্লাইডে যান
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    currentSlide = parseInt(this.getAttribute('data-slide'));
+                    updateSlider();
+                });
+            });
+            
+            // স্বয়ংক্রিয় স্লাইডিং
+            let slideInterval = setInterval(() => {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlider();
+            }, 5000);
+            
+            // স্লাইডারে হোভার করলে অটো স্লাইড বন্ধ করুন
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            // স্লাইডার থেকে বের হলে অটো স্লাইড চালু করুন
+            slider.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(() => {
+                    currentSlide = (currentSlide + 1) % slideCount;
+                    updateSlider();
+                }, 5000);
+            });
+            
+            // টাচ ইভেন্টস (মোবাইল ডিভাইসের জন্য)
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            slider.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, false);
+            
+            slider.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, false);
+            
+            function handleSwipe() {
+                const threshold = 50; // ন্যূনতম সোয়াইপ দূরত্ব
+                const diff = touchEndX - touchStartX;
+                
+                if (Math.abs(diff) > threshold) {
+                    if (diff > 0) {
+                        // ডানদিকে সোয়াইপ - পূর্ববর্তী স্লাইড
+                        currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                    } else {
+                        // বামদিকে সোয়াইপ - পরবর্তী স্লাইড
+                        currentSlide = (currentSlide + 1) % slideCount;
+                    }
+                    updateSlider();
+                }
+            }
+        });
+
         // নেভিগেশন ক্লিক হ্যান্ডলার
         document.querySelectorAll('.nav-item').forEach(item => {
             item.addEventListener('click', function(e) {
